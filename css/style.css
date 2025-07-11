@@ -383,7 +383,12 @@ li {
         grid-template-columns: 1fr;
     }
 }
-
+@media (max-width: 768px) {
+    .site-footer {
+        position: relative;
+        bottom: 0;
+    }
+}
 @media (min-width: 1200px) {
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -439,18 +444,21 @@ li {
     background: #0d1117;
     color: #c9d1d9;
     text-align: center;
-    padding: 1rem;
+    padding: 20px;
     font-size: 0.9rem;
     border-top: 1px solid #30363d;
     position: relative;
     bottom: 0;
     width: 100%;
     z-index: 2;
+
 }
 
 .footer-content {
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer-links {
