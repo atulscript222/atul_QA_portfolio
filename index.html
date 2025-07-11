@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atul Kumar | QA Engineer</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+</head>
+
+
+
+
+
+<body>
+
+<canvas id="stars"></canvas>
+
+<script>
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+
+    let stars = [];
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    function createStars(count) {
+        stars = [];
+        for (let i = 0; i < count; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 1.2,
+                speed: Math.random() * 0.5 + 0.05
+            });
+        }
+    }
+
+    function drawStars() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#ffffff";
+        stars.forEach(star => {
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+            ctx.fill();
+        });
+    }
+
+    function updateStars() {
+        stars.forEach(star => {
+            star.y += star.speed;
+            if (star.y > canvas.height) {
+                star.y = 0;
+                star.x = Math.random() * canvas.width;
+            }
+        });
+    }
+
+    function animate() {
+        drawStars();
+        updateStars();
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', () => {
+        resizeCanvas();
+        createStars(150);
+    });
+
+    resizeCanvas();
+    createStars(150);
+    animate();
+</script>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">Atul Kumar</div>
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <ul class="nav-links">
+            <li><a href="#about" onclick="showSection('about')">About</a></li>
+            <li><a href="#skills" onclick="showSection('skills')">Skills</a></li>
+            <li><a href="#projects" onclick="showSection('projects')">Projects</a></li>
+            <li><a href="#experience" onclick="showSection('experience')">Experience</a></li>
+            <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <section id="about" class="active">
+        <div class="about-wrapper glass-effect">
+            <div class="about-left">
+                <img src="https://i.postimg.cc/MHgGgH08/image1.jpg" alt="Atul Kumar Profile" class="profile-img" />
+            </div>
+            <div class="about-right">
+                <h2 class="animated-title">Hi, I'm <span class="highlight">Atul Kumar</span> 👋</h2>
+                <p class="typewriter-text">Quality is never an accident. It's always the result of smart testing. 🚀</p>
+                <p>
+                    I'm a <strong>QA Engineer</strong> with 2+ years of experience testing <strong>SaaS platforms</strong>, APIs, and mobile apps.
+                    Skilled in <strong>Java, Selenium, PyTest, Postman</strong>, and performance tools like <strong>JMeter</strong>, I build robust automation pipelines, work with <strong>hybrid frameworks</strong>, break things early, and ensure exceptional user experience.
+                </p>
+                <br>
+                <p>
+                    When not squashing bugs, I craft internal tools, test AI models, and contribute to scalable automation frameworks. Let’s raise the quality bar together!
+                </p>
+<!--                <button class="contact-btn" onclick="openModal()">📩 Let’s Talk</button>-->
+                <a href="javascript:void(0);" class="contact-btn" onclick="openModal()">📩 Let’s Talk</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="skills">
+        <h2>Skills</h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <h3>🖥️ Programming & Scripting</h3>
+                <ul>
+                    <li><strong>Java:</strong> Core language for automation frameworks</li>
+                    <li><strong>Python:</strong> Scripting and Pytest automation</li>
+                    <li><strong>SQL:</strong> Backend testing & data verification</li>
+                    <li><strong>HTML, CSS:</strong> Basic UI structure & web testing</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>🧪 Automation Tools</h3>
+                <ul>
+                    <li><strong>Selenium WebDriver</strong></li>
+                    <li><strong>TestNG, Pytest</strong></li>
+                    <li><strong>Appium (Android , IOS)</strong></li>
+                    <li><strong>Playwright</strong></li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>🌐 API & Performance</h3>
+                <ul>
+                    <li><strong>Postman & Newman CLI</strong></li>
+                    <li><strong>JMeter (Load Testing)</strong></li>
+                    <li><strong>JSON, REST APIs</strong></li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>🧱 Frameworks & Testing Types</h3>
+                <ul>
+                    <li><strong>Hybrid / BDD / Data-Driven</strong></li>
+                    <li><strong>Manual, Regression, Smoke</strong></li>
+                    <li><strong>Cross-Browser, Responsive</strong></li>
+                    <li><strong>Cross-Platform OS Testing (Windows, macOS, Linux)</strong></li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>⚙️ CI/CD & DevOps</h3>
+                <ul>
+                    <li><strong>Jenkins Pipelines</strong></li>
+                    <li><strong>Git, GitHub</strong></li>
+                    <li><strong>Maven for Build</strong></li>
+                    <li><strong>Docker, Selenium Grid</strong></li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>🔧 Agile & Testing Support</h3>
+                <ul>
+                    <li><strong>Agile/Scrum:</strong> Sprint planning, stand-ups</li>
+                    <li><strong>Bug Tracking:</strong> Jira</li>
+                    <li><strong>Documentation:</strong> Test Cases, Reports</li>
+                    <li><strong>ML/AI Model Testing</strong></li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <section id="projects">
+        <h2>Projects</h2>
+
+        <div class="project-card">
+            <h3>📄 GRN Downloader v1</h3>
+            <p><strong>Description:</strong> Developed a Python-based automation tool to mass-download GRNs (Goods Receipt Notes) from a government website without login restrictions.</p>
+            <p><strong>Key Features:</strong></p>
+            <ul>
+                <li>Automates document fetching based on user input or a range of GRN numbers.</li>
+                <li>Handles session persistence and link validation before download.</li>
+                <li>Improves speed of document retrieval, reducing manual efforts by 80%.</li>
+            </ul>
+            <p><strong>Tech Stack:</strong> Python, Requests, BeautifulSoup, OS Module</p>
+            <div class="project-links">
+                <a href="https://github.com/atulscript222/grn_downloader_v1" target="_blank" class="project-btn">🔗 View Code</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>🧪 Automation Script Project</h3>
+            <p><strong>Description:</strong> Built a complete hybrid automation framework for functional UI testing of a web application with reporting and logging capabilities.</p>
+            <p><strong>Key Features:</strong></p>
+            <ul>
+                <li>Used Data-Driven Testing with Excel for parameterized test cases.</li>
+                <li>Implemented listener classes, reusable methods, and dynamic locators.</li>
+                <li>Included automated screenshots, detailed HTML reports using ExtentReports.</li>
+            </ul>
+            <p><strong>Tech Stack:</strong> Java, Selenium WebDriver, TestNG, Maven, Apache POI, ExtentReports</p>
+            <div class="project-links">
+                <a href="https://github.com/atulscript222/automation_script_project.1" target="_blank" class="project-btn">🔗 View Code</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>📚 PDF Tool Kit</h3>
+            <p><strong>Description:</strong> Created a utility toolkit with multiple PDF operations for document management and automation tasks.</p>
+            <p><strong>Key Features:</strong></p>
+            <ul>
+                <li>Crop, merge, split, reverse, and extract pages from PDF files.</li>
+                <li>Bulk operations like merging all CSVs and Excel files in a folder.</li>
+                <li>RAR file support to extract PDFs before processing.</li>
+            </ul>
+            <p><strong>Tech Stack:</strong> Python, PyPDF2, OS, Pandas, Zipfile, Tkinter (for GUI)</p>
+            <div class="project-links">
+                <a href="https://github.com/atulscript222/pdf_tool_kits" target="_blank" class="project-btn">🔗 View Code</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="experience">
+        <h2>Professional Experience</h2>
+
+        <div class="project-card">
+            <h3>🧪 Quality Assurance Engineer – Doqfy Internet Pvt. Ltd.</h3>
+            <p><strong>Duration:</strong> June 2023 – Present</p>
+            <ul>
+                <li>Designed and executed end-to-end test plans covering both UI and backend workflows for SaaS-based platforms.</li>
+                <li>Developed and maintained automated regression suites using <strong>Java, Selenium, TestNG, and Maven</strong> within a custom hybrid framework.</li>
+                <li>Performed cross-browser testing using <strong>Selenium Grid</strong> and <strong>Docker</strong> for execution consistency across environments.</li>
+                <li>Conducted REST API testing via <strong>Postman</strong> and load testing with <strong>Newman CLI</strong> to simulate high-traffic conditions.</li>
+                <li>Collaborated within <strong>Agile</strong> teams, participated in sprint planning, defect triage, and daily stand-ups using <strong>Jira</strong>.</li>
+            </ul>
+        </div>
+
+        <div class="project-card">
+            <h3>💻 QA Analyst Intern – Bzaar (US eCommerce Marketplace)</h3>
+            <p><strong>Duration:</strong> Jan 2023 – Apr 2023</p>
+            <ul>
+                <li>Performed <strong>manual functional, regression, smoke, sanity, and UI testing</strong> for an international e-commerce platform.</li>
+                <li>Created and executed detailed test cases validating product flows like search, cart, checkout, and payments.</li>
+                <li>Used <strong>GitHub</strong>, <strong>Docker</strong>, and <strong>Jira</strong> for task tracking, collaboration, and test validation in CI/CD setups.</li>
+            </ul>
+        </div>
+
+        <h2>Project Experience</h2>
+
+        <div class="project-card">
+            <h3>📄 Contract Execution (CE) – SaaS Platform</h3>
+            <ul>
+                <li>Tested business-critical modules: <strong>eStamping, eSigning, approval workflows</strong>.</li>
+                <li>Executed <strong>functional and integration testing</strong>, generating HTML/XML-based test reports and logs.</li>
+                <li>Validated APIs using <strong>Postman</strong> and performed <strong>load testing</strong> using <strong>Newman CLI</strong>.</li>
+            </ul>
+        </div>
+
+        <div class="project-card">
+            <h3>📂 Contract Lifecycle Management (CLM) – SaaS Platform</h3>
+            <ul>
+                <li>Automated regression test cases using <strong>Java + Selenium</strong> with a hybrid framework managed via <strong>Apache Maven</strong>.</li>
+                <li>Performed end-to-end testing for contract creation, template selection, collaboration, and UI workflows.</li>
+                <li>Ran test executions on <strong>Selenium Grid</strong> inside <strong>Docker containers</strong> to ensure environment coverage.</li>
+            </ul>
+        </div>
+    </section>
+
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>I'm always open to discussing QA roles, project collaborations, or just chatting about tech!</p>
+
+        <ul style="list-style: none; padding-left: 0; margin-top: 1rem;">
+            <li>
+                📧 <strong>Email:</strong>
+                <a href="mailto:atulprajapathi@gmail.com" style="color: #58a6ff; text-decoration: underline;">atulprajapathi@gmail.com</a>
+            </li>
+            <li>
+                📱 <strong>Phone:</strong>
+                <a href="tel:+91891842273" style="color: #58a6ff; text-decoration: underline;">+91 89184 2273</a>
+            </li>
+            <li>
+                💼 <strong>LinkedIn:</strong>
+                <a href="https://www.linkedin.com/in/atul-kumar-prajapathi-data-analyst/" target="_blank" style="color: #58a6ff; text-decoration: underline;">
+                    linkedin.com/in/atul-kumar-prajapathi
+                </a>
+            </li>
+            <li>
+                💻 <strong>GitHub:</strong>
+                <a href="https://github.com/atulscript222" target="_blank" style="color: #58a6ff; text-decoration: underline;">
+                    github.com/atulscript222
+                </a>
+            </li>
+            <li>
+                📍 <strong>Location:</strong> Bangalore, India
+            </li>
+        </ul>
+
+        <a class="contact-btn" href="mailto:atulprajapathi@gmail.com?subject=QA%20Portfolio%20Inquiry&body=Hi%20Atul,%0D%0A%0D%0AI%20would%20like%20to%20connect%20regarding%20your%20QA%20profile.%0D%0A%0D%0ARegards,">
+            📤 Let's Connect
+        </a>
+    </section>
+
+</div>
+<!-- ✅ Modal goes here -->
+<div id="contactModal" class="modal">
+    <div class="modal-content glass-effect">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2>Get in Touch</h2>
+        <input type="email" placeholder="Your Email" class="modal-input" />
+        <textarea placeholder="Your Message" class="modal-textarea"></textarea>
+        <button class="send-btn" onclick="sendMessage()">Send</button>
+    </div>
+</div>
+<footer class="site-footer">
+    <div class="footer-content">
+        <p>&copy; <span id="year"></span> Atul Kumar. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://github.com/atulscript222" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/atul-kumar-prajapathi-data-analyst/" target="_blank">LinkedIn</a>
+            <a href="mailto:atulprajapathi@gmail.com">Email</a>
+        </div>
+    </div>
+</footer>
+<script>
+    // Open Modal
+    function openModal() {
+        document.getElementById("contactModal").style.display = "flex"; // use flex for better centering
+    }
+
+    // Close Modal
+    function closeModal() {
+        document.getElementById("contactModal").style.display = "none";
+    }
+
+    // Send Message
+    function sendMessage() {
+        const email = document.querySelector('.modal-input').value.trim();
+        const message = document.querySelector('.modal-textarea').value.trim();
+
+        if (email && message) {
+            alert(`✅ Thanks for reaching out!\n📨 I’ll get back to you at ${email}`);
+            document.querySelector('.modal-input').value = '';
+            document.querySelector('.modal-textarea').value = '';
+            closeModal();
+        } else {
+            alert('⚠️ Please fill out both email and message fields.');
+        }
+    }
+
+    // Close modal if clicking outside
+    window.onclick = function (event) {
+        const modal = document.getElementById("contactModal");
+        if (event.target === modal) {
+            closeModal();
+        }
+    };
+
+    // Show selected section
+    function showSection(sectionId) {
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.remove('active');
+        });
+
+        const target = document.getElementById(sectionId);
+        if (target) {
+            target.classList.add('active');
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // Update footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+
+</body>
+
+</html>
