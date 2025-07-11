@@ -527,3 +527,30 @@ li {
     cursor: pointer;
     font-weight: bold;
 }
+.glow-btn {
+    background-color: #1f8ef1;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 0 15px #1f8ef1;
+    transition: all 0.3s ease-in-out;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.glow-btn:hover {
+    background-color: #6caff4;
+    box-shadow: 0 0 20px #84c0f4, 0 0 30px #96e3ec;
+    transform: scale(1.05);
+}
+
+.button-group {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
